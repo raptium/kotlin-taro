@@ -10,7 +10,7 @@ afterEvaluate {
                 groupId = project.group.toString()
                 artifactId = project.name
                 version = version
-                artifact(tasks.getByName<Zip>("jsSourcesJar"))
+                artifact(tasks.getByName<Zip>("jsLegacySourcesJar"))
             }
         }
     }

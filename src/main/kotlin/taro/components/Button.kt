@@ -1,9 +1,11 @@
+@file:JsModule("@tarojs/components")
+@file:JsNonModule
+
 package taro.components
 
 import react.RClass
 
 @JsName("Button")
-@JsModule("@tarojs/components")
 external val button: RClass<ButtonProps>
 
 external interface ButtonProps : StandardProps<Any> {

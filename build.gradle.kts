@@ -11,28 +11,23 @@ repositories {
     mavenCentral()
 }
 
-val taroVersion = "3.0.23"
-var reactVersion = "16.10.0"
+val kotlinWrapperVersion = "16.13.1-pre.124-kotlin-1.4.10"
 
 kotlin {
     js {
-        browser()
+        nodejs()
     }
 }
 
 dependencies {
     api(kotlin("stdlib-js"))
-    api("org.jetbrains:kotlin-react:16.13.1-pre.105-kotlin-1.3.72")
-    api("org.jetbrains:kotlin-react-dom:16.13.1-pre.105-kotlin-1.3.72")
+    api("org.jetbrains:kotlin-react:$kotlinWrapperVersion")
+    api("org.jetbrains:kotlin-css:1.0.0-pre.138-kotlin-1.4.21")
 
-    api(npmv("@tarojs/taro"))
-    api(npm("@tarojs/components", taroVersion))
-    api(npm("@tarojs/runtime", taroVersion))
-    api(npm("@tarojs/react", taroVersion))
-    api(npm("react", reactVersion))
-    api(npm("react-dom", reactVersion))
-
-    // test
-    testImplementation(kotlin("test-js"))
+    compileOnly(npmv("@tarojs/taro"))
+    compileOnly(npmv("@tarojs/components"))
+    compileOnly(npmv("@tarojs/runtime"))
+    compileOnly(npmv("@tarojs/react"))
+    compileOnly(npmv("react"))
 }
 
