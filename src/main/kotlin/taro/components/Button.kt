@@ -9,6 +9,13 @@ import react.RClass
 external val button: RClass<ButtonProps>
 
 external interface ButtonProps : StandardProps<Any> {
-    var size: String
-    var type: String
+    var size: String?
+    var type: String?
+    var plain: Boolean?
+    var disabled: Boolean?
+    var loading: Boolean?
+    var hoverClass: String?
+    var hoverStopPropagation: Boolean?
+    var hoverStartTime: Int?
+    var hoverStayTime: Int?
 }

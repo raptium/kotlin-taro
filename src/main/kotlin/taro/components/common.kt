@@ -61,7 +61,7 @@ external interface BaseEventOrig<T> {
     var type: String
     var timeStamp: Number
     var target: Target
-    var currentTarget: currentTarget
+    var currentTarget: CurrentTarget
     var detail: T
     var preventDefault: () -> Unit
     var stopPropagation: () -> Unit
@@ -92,9 +92,9 @@ external interface Target {
     var dataset: Json
 }
 
-external interface currentTarget : Target
+external interface CurrentTarget : Target
 
-external interface netStatus {
+external interface NetStatus {
     var videoBitrate: Number?
     var audioBitrate: Number?
     var videoFPS: dynamic /* Number? | String? */
