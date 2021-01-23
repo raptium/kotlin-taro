@@ -26,7 +26,7 @@ external interface RequestTask<T> : Promise<SuccessCallbackResult<T>> {
 }
 
 external interface CallbackResult {
-    var errMsg: String
+    var errMsg: String?
 }
 
 external interface RequestOption<U> {

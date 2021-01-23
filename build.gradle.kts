@@ -11,8 +11,6 @@ repositories {
     mavenCentral()
 }
 
-val kotlinWrapperVersion = "16.13.1-pre.124-kotlin-1.4.10"
-
 kotlin {
     js {
         nodejs()
@@ -22,13 +20,12 @@ kotlin {
 
 dependencies {
     api(kotlin("stdlib-js"))
-    api("org.jetbrains:kotlin-react:$kotlinWrapperVersion")
-    api("org.jetbrains:kotlin-css:1.0.0-pre.138-kotlin-1.4.21")
+    api("org.jetbrains:kotlin-react:${version("kotlin-react")}")
+    api("org.jetbrains:kotlin-css:${version("kotlin-css")}")
 
-    compileOnly(npmv("@tarojs/taro"))
-    compileOnly(npmv("@tarojs/components"))
-    compileOnly(npmv("@tarojs/runtime"))
-    compileOnly(npmv("@tarojs/react"))
+    compileOnly(npm("@tarojs/taro", version("taro")))
+    compileOnly(npm("@tarojs/components", version("taro")))
+    compileOnly(npm("@tarojs/runtime", version("taro")))
+    compileOnly(npm("@tarojs/react", version("taro")))
     compileOnly(npmv("react"))
 }
-
