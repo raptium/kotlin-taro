@@ -6,8 +6,9 @@
     "CONFLICTING_OVERLOADS"
 )
 
-package taro.network
+package taro.taro.network
 
+import taro.taro.General
 import kotlin.js.Promise
 
 @JsName("request")
@@ -18,23 +19,19 @@ external fun addInterceptor(callback: Function<*>)
 
 external interface RequestTask<T> : Promise<SuccessCallbackResult<T>> {
     fun abort()
-    fun offHeadersReceived(callback: (CallbackResult) -> Unit)
+    fun offHeadersReceived(callback: (General.CallbackResult) -> Unit)
     fun onHeadersReceived(callback: (OnHeadersReceivedCallbackResult) -> Unit)
     interface OnHeadersReceivedCallbackResult {
         var header: Any
     }
 }
 
-external interface CallbackResult {
-    var errMsg: String?
-}
-
 external interface RequestOption<U> {
     var url: String
-    var complete: ((res: CallbackResult) -> Unit)?
+    var complete: ((res: General.CallbackResult) -> Unit)?
     var data: U?
     var dataType: String? /* "json" | String? */
-    var fail: ((res: CallbackResult) -> Unit)?
+    var fail: ((res: General.CallbackResult) -> Unit)?
     var header: Any?
     var method: String? /* "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" */
     var responseType: String? /* "text" | "arraybuffer" */
@@ -54,7 +51,7 @@ external interface RequestOption<U> {
     val storeCheck: (() -> Boolean)?
 }
 
-external interface SuccessCallbackResult<T> : CallbackResult {
+external interface SuccessCallbackResult<T> : General.CallbackResult {
     var data: T
     var header: dynamic
     var statusCode: Int
